@@ -131,6 +131,11 @@ class _HomePageState extends State<HomePage> {
     if (_joinController.text == "") {
       _joinController.text = "Tanggal Bergabung";
     }
+
+    _noIndukController.text = '';
+    _namaController.text = '';
+    _alamatController.text = '';
+
     // if (id != null) {
     //   // id == null -> create new item
     //   // id != null -> update an existing item
@@ -1173,7 +1178,7 @@ class _HomePageState extends State<HomePage> {
                                             IconButton(
                                               icon: const Icon(Icons.edit,color: Colors.green,),
                                               onPressed: () => _showFormUpdateCuti(
-                                                  _journals[index]['id'], ""),
+                                                  _journals[index]['id'], "Tanggal Cuti"),
                                             ),
                                             IconButton(
                                               icon: const Icon(Icons.delete,color: Colors.red,),
