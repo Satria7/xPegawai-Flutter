@@ -454,8 +454,8 @@ class _HomePageState extends State<HomePage> {
       _alamatController.text = existingJournal['alamat'];
       _ttlController.text = existingJournal['ttl'];
       _joinController.text = existingJournal['date'];
-      _lamaController.text = existingJournal['lama_cuti'];
-      _ketController.text = existingJournal['ket_cuti'];
+      // _lamaController.text = existingJournal['lama_cuti'];
+      // _ketController.text = existingJournal['ket_cuti'];
       _sisaController.text = existingJournal['sisa'];
       if(existingJournal['cuti']=="cuti"){
         temCuti="cuti lebih";
