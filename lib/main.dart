@@ -1183,7 +1183,7 @@ class _HomePageState extends State<HomePage> {
                                       )),
                                   ListTile(
                                       // contentPadding:EdgeInsets.all(0),
-                                      title: Text("Alamat : "+_journals[index]['tempGabung'], style: TextStyle(
+                                      title: Text("Alamat : "+_journals[index]['alamat'], style: TextStyle(
                                           fontWeight: FontWeight.normal,
                                           fontSize: 15,
                                           fontFamily: 'Poppins')),
