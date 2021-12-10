@@ -119,6 +119,8 @@ class _HomePageState extends State<HomePage> {
   var inputText = "";
   var _controller = TextEditingController();
   var index = 0;
+  final DateFormat format = DateFormat("dd MMM yyyy");
+
 
   // This function will be triggered when the floating button is pressed
   // It will also be triggered when you want to update an item
@@ -129,17 +131,17 @@ class _HomePageState extends State<HomePage> {
     if (_joinController.text == "") {
       _joinController.text = "Tanggal Bergabung";
     }
-    if (id != null) {
-      // id == null -> create new item
-      // id != null -> update an existing item
-      final existingJournal =
-          _journals.firstWhere((element) => element['id'] == id);
-      _noIndukController.text = existingJournal['nomor_induk'];
-      _namaController.text = existingJournal['nama'];
-      _alamatController.text = existingJournal['alamat'];
-      _joinController.text = existingJournal['date'];
-      _ttlController.text = existingJournal['ttl'];
-    }
+    // if (id != null) {
+    //   // id == null -> create new item
+    //   // id != null -> update an existing item
+    //   final existingJournal =
+    //       _journals.firstWhere((element) => element['id'] == id);
+    //   _noIndukController.text = existingJournal['nomor_induk'];
+    //   _namaController.text = existingJournal['nama'];
+    //   _alamatController.text = existingJournal['alamat'];
+    //   _joinController.text = existingJournal['date'];
+    //   _ttlController.text = existingJournal['ttl'];
+    // }
 
     showGeneralDialog(
         context: context,
@@ -966,7 +968,7 @@ class _HomePageState extends State<HomePage> {
         temCuti,
        _joinController.text,
         _sisaController.text,
-        temGabung,
+        _joinController.text,
       );
       _refreshJournals();
     } else {
@@ -984,7 +986,7 @@ class _HomePageState extends State<HomePage> {
           temCuti,
           _joinController.text,
           _sisaController.text,
-          temGabung,
+          _joinController.text,
         );
         _refreshJournals();
       }else{
@@ -1000,7 +1002,7 @@ class _HomePageState extends State<HomePage> {
           temCuti,
           _joinController.text,
           _sisaController.text,
-          temGabung,
+          _joinController.text,
         );
         _refreshJournals();
       }
@@ -1202,7 +1204,7 @@ class _HomePageState extends State<HomePage> {
                                       padding:
                                       EdgeInsets.only(left: 15, right: 15,bottom: 10),
                                       child: Text(
-                                        "Tanggal Gabung : "+_journals[index]['date'],
+                                        "Tanggal Gabung : "+format.format(DateTime.parse(_journals[index]['date'])),
                                         style: TextStyle(
                                             fontWeight: FontWeight.normal,
                                             fontFamily: 'Poppins'),
@@ -1286,10 +1288,10 @@ class _HomePageState extends State<HomePage> {
                             if (status == "ttl") {
                               _ttlController.text =
                                   formatTtl = DateFormat('dd MMM yyyy').format(newDateTime);
-                              print(newDateTime.toString().substring(0,10));
+
                             } else if (status == "gabung") {
                               _joinController.text =
-                                  formatJoin= DateFormat('dd MMM yyyy').format(newDateTime);
+                                  newDateTime.toString().substring(0,10);
                               temGabung=newDateTime.toString().substring(0,10);
                               print(_joinController.text);
                             } else if (status == "cuti") {
